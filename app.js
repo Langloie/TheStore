@@ -3,6 +3,7 @@
 //add required packages
 const express = require('express');
 const mongoose = require('mongoose');
+const fs = require('fs');
 
 
 const app = express();
@@ -17,14 +18,36 @@ app.use(express.json());
 // get all listings
 //  url/listings/
 
+
+//readfile
 app.get('/listings', (req, res)=>{
-    res.json({'message': "listings page"})
-})
+    fs.readFile('./index.html', 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        res.send(data);
+      });
+});
+
+//create new listing
+app.get('/listings/new', (req, res)=>{
+  fs.readFile('./new.html', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      res.send(data);
+    });
+});
+
+
+
 
 
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);
-})
+});
 
 // create new listing
 //  url/listings/new
