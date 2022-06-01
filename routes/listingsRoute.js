@@ -1,7 +1,7 @@
 // IMPORT EXPRESS TO CREATE EXPRESS ROUTERS
 const express = require("express");
 
-// IMPORT OUR LEARNER CONTROLLER
+// IMPORT OUR listing CONTROLLER
 const listingsController = require("./../controllers/listingsControllers");
 
 // Create an express router

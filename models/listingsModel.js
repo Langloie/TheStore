@@ -3,29 +3,33 @@ const mongoose = require("mongoose");
 
 // Create our listings schema
 const listingsSchema = new mongoose.Schema({
-  Seller: {
+  seller: {
     type: String,
     required: true,
   },
-  Product: {
+  product: {
     type: String,
     required: true,
   },
-  Description: {
+  url: {
     type: String,
     required: true,
   },
-  Price: {
+  description: {
     type: String,
     required: true,
   },
-  Amount: {
+  price: {
+    type: String,
+    required: true,
+  },
+  amount: {
     type: Number,
     required: true,
-  }
+  },
 });
 
 //  Lets FINALLYYYYYYYY!!!!! CREATE OUR MODEL
-const Listing = mongoose.model("Listings", listingsSchema);
+const Listing = mongoose.model("Listing", listingsSchema);
 
 module.exports = Listing;

@@ -1,8 +1,8 @@
-//import model to create new learners
+//import model to create new listing
 const Listing = require('../models/listingsModel');
 
 // Refactor route controllers
-// This is to retrieve all the learners at once
+// This is to retrieve all the listings at once
 exports.getAllListings = async (request, response) => {
     try{
     const listings = await Listing.find();
@@ -19,7 +19,7 @@ exports.getAllListings = async (request, response) => {
         })
     }
   };
-  
+   
   // This controller is to create a new listing
   exports.createListing = async (request, response) => {
       try{
@@ -44,10 +44,11 @@ exports.getAllListings = async (request, response) => {
   exports.getSingleListing = async (request, response) => {
     try{
     const listing = await Listing.findById(request.params.id);
+    console.log(listing);
     response.status(200).json({
       status: "success",
       data: {
-        learner: learner,
+        listing: listing,
       },
     });
     }catch(error){
@@ -65,7 +66,7 @@ exports.getAllListings = async (request, response) => {
     response.status(200).json({
       status: "success",
       data: {
-        updatedListing,
+        updateListing,
       },
     });
     }catch(error){
