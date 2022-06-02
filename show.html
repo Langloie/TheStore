@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+        <style>
+            *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+    background-color: #e6e8e6;
+}
+
+.navbar{
+    height:130px;
+    background-color: #7fcf67;
+    color: white;
+    -webkit-box-shadow: 5px 29px 50px 50px #7FCF67; 
+    box-shadow: 5px 29px 50px 50px #7FCF67;
+}
+
+.navbar img{
+    height: 100%
+}
+
+.card img{
+    height: 200px;
+    width: auto;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navContainer{
+    justify-content: flex-start;
+    padding: 15px;
+    margin: 0 10px;
+}
+
+.logo{
+    margin-left: 9px;
+}
+
+.card{
+    background-color: white;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+.grid{
+    grid-template-columns: auto auto;
+    flex-wrap: wrap;
+}
+
+.info h3{
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.AddBtn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: #5b6b01;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 30px;
+    justify-content: flex-end;   
+}
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navContainer flex">
+                <img src="https://www.pngkey.com/png/full/14-146236_root-qc-family-tree-logo-clip-art-transparent.png" alt="">
+                <h1 class="logo">Community Marketplace</h1>
+            </div>
+        </div>
+        <div class="cardContainer grid flex">
+            <div class="showcase-form card">
+                <h2>Input listing information</h2>
+                <form>
+                    <div class="form-control">
+                        <input type="text" name = "name" placeholder="Name" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name = "description" placeholder="Description" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name = "price" placeholder="price" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name = "amount" placeholder="Amount in stock" required>
+                    </div>
+                    <input type="submit" value="Create new listing" class = "btn btn-primary">
+                </form>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>

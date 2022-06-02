@@ -1,6 +1,9 @@
 //import mongoose to connect to db
 const mongoose = require('mongoose');
 
+const express = require('express');
+const appExpress = express();
+
 //import dotenv
 const dotenv = require('dotenv');
 
@@ -11,9 +14,14 @@ dotenv.config({
 
 console.log(process.env)
 
+appExpress.set('view engine', 'jsx');
+appExpress.engine('jsx', require('express-react-views').createEngine());
 
 // IMPORT OUR EXPRESS APPLICATION
 const app = require("./app");
+
+//import listings schema
+const Listing = require('./models/listingsModel.js')
 
 //variable to represent database
 const listingsDB = mongoose.connect(process.env.DATABASE.replace("<password>",process.env.PASSWORD)).then(()=>{
@@ -21,16 +29,24 @@ const listingsDB = mongoose.connect(process.env.DATABASE.replace("<password>",pr
 });
 
 
-// //readfile
-// app.get('/products', (req, res)=>{
-//     fs.readFile('./index.html', 'utf8', (err, data) => {
-//         if (err) {
-//           console.error(err);
-//           return;
-//         }
-//         res.send(data);
+// appExpress.get('/products', (req, res)=>{
+//   Listing.find({}, (error, allListings)=>{
+//       res.render('Index', {
+//           listings: allListings
 //       });
+//   });
 // });
+
+// //readfile
+app.get('/products', (req, res)=>{
+    fs.readFile('./index.html', 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        res.send(data);
+      });
+});
 
 
 

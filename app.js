@@ -1,5 +1,9 @@
 //online marketplace (like facebook marketplace)
 
+
+
+
+
 //add required packages
 const express = require('express');
 // const mongoose = require('mongoose');
@@ -24,15 +28,26 @@ app.use("/api/v1/listings", listingsRouter);
 
 
 // //create new listing
-// app.get('/listings/new', (req, res)=>{
-//   fs.readFile('./new.html', 'utf8', (err, data) => {
-//       if (err) {
-//         console.error(err);
-//         return;
-//       }
-//       res.send(data);
-//     });
-// });
+app.get('/listings/new', (req, res)=>{
+  fs.readFile('./new.html', 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      res.send(data);
+    });
+});
+
+// //create new listing
+app.get('/listings/new', (req, res)=>{
+    fs.readFile('./show.html', 'utf8', (err, data) => {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        res.send(data);
+      });
+  });
 
 //create a way to handle errors
 app.all("*", (request, response, next)=>{
@@ -57,8 +72,7 @@ app.all("*", (request, response, next)=>{
 
 module.exports = app;
 
-// create new listing
-//  url/listings/new
+
 
 //delete listing
 //  url/listings/:id
